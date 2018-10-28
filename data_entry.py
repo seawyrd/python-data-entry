@@ -2,6 +2,7 @@
 '''*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
                         Program:  The Data Entry Program
                         Author:   Seawyrd
+                        GitHub:   https://github.com/seawyrd/
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*'''
 
 
@@ -58,19 +59,19 @@ def dataType() -> 'data type':
     if new_type == 'd':
         data = dict()                           # creates dictionary
         data_type = type(data)
-        print('\nYou chose "dictionary".')
+        print('\n You chose "dictionary".')
     elif new_type == 'l':
         data = list()                           # creates list
         data_type = type(data)
-        print('\nYou chose "list".')
+        print('\n You chose "list".')
     elif new_type == 's':
         data = set()                            # creates set
         data_type = type(data)
-        print('\nYou chose "set".')
+        print('\n You chose "set".')
     elif new_type == 't':
         data = tuple()                          # creates tuple
         data_type = type(data)                           # temp list used for
-        print('\nYou chose "tuple".')           # data entry in writeData()
+        print('\n You chose "tuple".')           # data entry in writeData()
     else:
         f.write('Invalid entry.')
         print('\n')
@@ -99,10 +100,10 @@ def writeData(data_type) -> 'write':
     if data_type is dict:
         temp_dict = dict()            # temporary dictionary
                                         # for iteration
-        print('Enter number of key:value pairs.')
+        print('\nEnter number of key:value pairs.')
         elements = input('>>> ')
         elements = int(elements)
-        print('\nYou chose %d elements,' % elements)
+        print('\n You chose %d elements,' % elements)
         print('\tstarting at [0] and ending at [%d]\n' % (elements-1))
         counter = 0
 
@@ -121,10 +122,10 @@ def writeData(data_type) -> 'write':
     elif data_type is list:
         temp_list = list()            # temporary list
                                         # for iteration
-        print('Enter number of list items.')
+        print('\nEnter number of list items.')
         elements = input('>>> ')
         elements = int(elements)
-        print('\nYou chose %d elements,' % elements)
+        print('\n You chose %d elements,' % elements)
         print('\tstarting at [0] and ending at [%d]\n' % (elements-1))
         counter = 0
 
@@ -142,10 +143,10 @@ def writeData(data_type) -> 'write':
         temp_set = set()            # temporary set
                                         # for iteration
 
-        print('Enter number of set items.')
+        print('\nEnter number of set items.')
         elements = input('>>> ')
         elements = int(elements)
-        print('\nYou chose %d elements,' % elements)
+        print('\n You chose %d elements,' % elements)
         print('\tstarting at [0] and ending at [%d]\n' % (elements-1))
         counter = 0
 
@@ -162,10 +163,10 @@ def writeData(data_type) -> 'write':
     elif data_type is tuple:
         temp_tuple_as_list = list()         # temporary list to be converted
                                                 # to tuple after iteration
-        print('Enter number of tuple items.')
+        print('\nEnter number of tuple items.')
         elements = input('>>> ')
         elements = int(elements)
-        print('\nYou chose %d elements,' % elements)
+        print('\n You chose %d elements,' % elements)
         print('\tstarting at [0] and ending at [%d]\n' % (elements-1))
         print('Creating temporary list...\n')
         counter = 0
@@ -198,14 +199,17 @@ def writeData(data_type) -> 'write':
     #**********************************************************************# '''
 def readFile():
     """Read contents of text file"""
-    print('Read back new file? [y/n]')
+    print('\n\nRead back new file? [y/n]')
     answer = input('>>> ')
 
     if answer == 'y':
-        print('Reading contents of %s ... ' % filename)
+        print('\nReading contents of %s ...done. ' % filename)
         f = open(filename, 'r')
         contents = f.read()
         print(contents)
+        keepGoing()
+    else:
+        keepGoing()
                 #end readFile()
 
 
@@ -219,8 +223,9 @@ def readFile():
     #**********************************************************************# '''
 def keepGoing():
     """Allows user to decide whether to continue or exit"""
-    print('\nEnter new data to %s? [y/n]' % filename)
+    print('\n\nEnter new data to %s? [y/n]' % filename)
     answer1 = input('>>> ')
+
     if answer1 == 'y':
         dataType()
         writeData(data_type)
@@ -234,6 +239,8 @@ def keepGoing():
             makeTxtFile()
         else:
             endHere()
+
+
                 #end keepGoing()
 
 
@@ -253,7 +260,7 @@ def startHere():
     print('\n')
     print('Welcome to the Data Entry Program in Python!'.center(width))
     print('\n')
-    print('Author: seawyrd'.center(width))
+    print('Author: Seawyrd'.center(width))
     print('https://github.com/seawyrd'.center(width))
     print('\n')
     print('{:*^80}'.format(''))
